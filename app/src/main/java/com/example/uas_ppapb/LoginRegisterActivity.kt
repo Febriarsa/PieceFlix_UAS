@@ -19,22 +19,17 @@ class LoginRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // menggunakan view binding untuk meng-inflate layout
         binding = ActivityLoginRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // inisialisasi SharedPreferences untuk menyimpan data secara lokal
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-        // memeriksa apakah pengguna sudah masuk
         val currentUser = Firebase.auth.currentUser
 
-        // menyiapkan viewpager2 dan tablayout
         val adapter = LoginRegisAdapter(this@LoginRegisterActivity)
         binding.viewPager2.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
 
-            // menetapkan teks tab berdasarkan posisi
             tab.text = when (position) {
                 0 -> "Login"
                 1 -> "Register"

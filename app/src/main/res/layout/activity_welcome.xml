@@ -12,17 +12,7 @@
         android:orientation="vertical"
         android:background="@drawable/bg_welcome">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Welcome to Cinefy!"
-            android:fontFamily="@font/mmedium"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:layout_marginTop="80dp">
-        </TextView>
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/welcomeBtn"
@@ -32,8 +22,8 @@
             android:layout_marginTop="170dp"
             android:background="@drawable/rounded2"
             android:fontFamily="@font/mmedium"
-            android:text="Get Started!"
-            android:textColor="@color/wine"
+            android:text="Ayo Nonton!"
+            android:textColor="@color/purple"
             android:textSize="16sp"
             android:textStyle="bold" />
 

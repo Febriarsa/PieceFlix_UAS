@@ -124,7 +124,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/grey"
+                android:textColor="@color/white"
                 android:padding="2sp"
                 android:layout_marginTop="8dp"
                 android:text="Terms"
@@ -145,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/grey"
+                android:textColor="@color/white"
                 android:padding="2sp"
                 android:text="Conditions"
                 android:fontFamily="@font/mmedium"
@@ -187,7 +187,7 @@
                 android:text="Login"
                 android:textSize="12sp"
                 android:fontFamily="@font/mmedium"
-                android:textColor="@color/grey"
+                android:textColor="@color/white"
                 android:layout_marginLeft="8dp"/>
         </LinearLayout>
     </LinearLayout>

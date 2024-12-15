@@ -1,6 +1,5 @@
 package com.example.uas_ppapb.database
 
-// Import yang dibutuhkan untuk Room Database dan migrasi
 import android.content.Context
 import androidx.room.Database
 import androidx.room.RoomDatabase
@@ -12,18 +11,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 @Database(entities = [Local::class, FilmFavorite::class], version = 2, exportSchema = true)
 abstract class LocalRoomDatabase : RoomDatabase() {
 
-    // Abstract function untuk mengakses DAO terkait tabel Local
     abstract fun localDao() : LocalDao?
 
-    // Abstract function untuk mengakses DAO terkait tabel FilmFavorite
     abstract fun filmFavoriteDao() : FilmFavoriteDao?
 
-    // Bagian Singleton Database untuk memastikan hanya satu instance database yang dibuat
     companion object {
         @Volatile
         private var INSTANCE: LocalRoomDatabase? = null
 
-        // Fungsi untuk mendapatkan instance database dengan mengamankan thread-safe menggunakan synchronized
         fun getDatabase(context: Context): LocalRoomDatabase? {
             if (INSTANCE == null) {
                 synchronized(LocalRoomDatabase::class.java) {
@@ -32,8 +27,8 @@ abstract class LocalRoomDatabase : RoomDatabase() {
                         LocalRoomDatabase::class.java,
                         "movie_database"
                     )
-                        .addMigrations(MIGRATION_1_2) // Tambahkan migrasi manual jika database memerlukan perubahan struktur
-                        .fallbackToDestructiveMigration() // Jika migrasi gagal, database akan dihapus dan dibuat ulang
+                        .addMigrations(MIGRATION_1_2)
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }
@@ -41,10 +36,8 @@ abstract class LocalRoomDatabase : RoomDatabase() {
             return INSTANCE
         }
 
-        // Definisi untuk migrasi database dari versi 1 ke versi 2
         private val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                // Perintah SQL untuk membuat tabel baru jika belum ada
                 database.execSQL("""
             CREATE TABLE IF NOT EXISTS film_favorite_table (
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,

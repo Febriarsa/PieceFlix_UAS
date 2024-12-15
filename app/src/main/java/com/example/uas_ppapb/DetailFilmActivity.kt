@@ -17,21 +17,17 @@ class DetailFilmActivity : AppCompatActivity() {
         binding = ActivityDetailFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // mendapatkan data dari intent yang memulai aktivitas ini dan menetapkannya ke tampilan detail
         binding.juduluser.text = intent.getStringExtra("judul")
         binding.directoruser.text = intent.getStringExtra("director")
         binding.durasiuser.text = intent.getStringExtra("durasi")
         binding.ratinguser.text = intent.getStringExtra("rating")
         binding.detailfilm.text = intent.getStringExtra("deskripsi")
 
-        // menangani aksi ketika tombol kembali ditekan
         binding.back.setOnClickListener {
-            // kembali ke halaman sebelumnya (HomeFragment) dan mengakhiri aktivitas saat ini
             startActivity(Intent(this@DetailFilmActivity, HomeFragment::class.java))
             finishAffinity()
         }
 
-        // memuat gambar menggunakan Glide ke dalam ImageView
         val imageUrl = intent.getStringExtra("imageUrl")
         if (imageUrl != null) {
             Glide.with(binding.imguser)

@@ -7,7 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
 
-// xml-nya tablayout
+// xml untuk tablayout
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
